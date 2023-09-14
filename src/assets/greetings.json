@@ -1,0 +1,54 @@
+{
+  "anytime": [
+    "Hello",
+    "Hi",
+    "Hey"
+  ],
+  
+  "morning": [
+    "Good morning",
+    "Wakey, wakey",
+    "Rise and shine",
+    "Top of the morning to you",
+    "Have a great day",
+    "Great day ahead"
+  ],
+
+  "day": [
+    "Hiya",
+    "Howdy",
+    "Aloha",
+    "Fancy seeing you here"
+  ],
+
+  "noon": [
+    "Time to eat lunch",
+    "Halfway there",
+    "Take a break",
+    "Enjoy your lunch",
+    "Happy eating"
+  ],
+
+  "afternoon": [
+    "Good afternoon",
+    "Have a great afternoon",
+    "Enjoy your afternoon",
+    "Here's to a wonderful afternoon",
+    "Cheers to a great afternoon"
+  ],
+
+  "evening": [
+    "Good evening",
+    "Enjoy the rest of your evening",
+    "Beautiful evening",
+    "Have a fine evening",
+    "Enjoy the evening to the fullest"
+  ],
+
+  "night": [
+    "Good night",
+    "Time to rest",
+    "Take it easy",
+    "Have a great night"
+  ]
+}
