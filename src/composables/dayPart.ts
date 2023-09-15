@@ -1,9 +1,9 @@
-import { useNow } from "@vueuse/core"
 import DayParts from "@/enums/dayParts"
 
-export default function useCurrentDayPart(): string {
-  const now = useNow()
-  const hour = now.value.getHours()
+export default function useDayPart(hour?: number): string {
+  if (!hour) {
+    return DayParts.ANYTIME
+  }
 
   if (hour >= 5 && hour < 12) {
     return DayParts.MORNING

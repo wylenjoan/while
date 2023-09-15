@@ -1,13 +1,9 @@
-import greetings from "../assets/greetings.json"
-import useCurrentDayPart from "./currentDayPart"
+import greetings from "@/assets/greetings.json"
 import useRandomNumberInRange from "./randomNumberInRange"
 
-export default function useGreetingByTime(name: string): string {
-  const currentDayPart = useCurrentDayPart()
-  const currentGreetings = greetings[currentDayPart]
+export default function useGreetingByTime(dayPart: string): string {
+  const currentGreetings = greetings[dayPart]
   const randomNumber = useRandomNumberInRange(0, currentGreetings.length)
 
-  const greeting = currentGreetings[randomNumber] ?? "Hello"
-
-  return `${greeting}, ${name}!`
+  return currentGreetings[randomNumber] ?? "Hello"
 }
