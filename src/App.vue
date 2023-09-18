@@ -28,9 +28,11 @@ const settings = {
   </header>
 
   <main id="main-content"> 
-    <div class="flex flex-col gap-4">
-      <Weather v-show="settings.showWeather" />
-      <Greeting v-show="settings.showGreeting" />
+    <div class="flex flex-col gap-2">
+      <Suspense>
+        <Weather v-show="settings.showWeather" />
+      </Suspense>
+      <Greeting v-show="settings.showGreeting" class="pb-2"/>
       <Quote v-show="settings.showQuote" />
     </div>
     <div class="flex gap-12">
