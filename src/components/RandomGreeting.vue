@@ -1,37 +1,32 @@
 <script setup lang="ts">
-import { ref, watch, onBeforeMount } from 'vue'
+import { watch, onBeforeMount } from "vue"
+import { storeToRefs } from "pinia"
 import { useNow } from "@vueuse/core"
 import { useGreetingStore } from "@/stores/GreetingStore"
+import { useDateTimeStore } from "@/stores/DateTimeStore"
 import useDayPart from "@/composables/dayPart"
 
-const {
-  currentDayPart, 
-  greetingWithName, 
-  updateCurrentDayPart, 
-  updateGreeting,
-} = useGreetingStore()
-
 const now = useNow()
-const hour = ref(now.value.getHours())
 
-function updateGreetingStore() {
-  if (currentDayPart !== useDayPart(hour.value)) {
-    updateCurrentDayPart(hour.value)
-    updateGreeting()
-  }
-}
+const { storedDayPart } = storeToRefs(useDateTimeStore())
+const { greetingWithName } = storeToRefs(useGreetingStore())
+
+const { updateDayPart } = useDateTimeStore()
+const { updateGreeting } = useGreetingStore()
 
 watch(
   () => now.value.getHours(), 
-  (currentHour) => {
-    hour.value = currentHour
-    updateGreetingStore()
+  (hour) => {
+    if (storedDayPart.value !== useDayPart(hour)) {
+      updateDayPart(hour)
+      updateGreeting()
+    }
   }
 )
 
 onBeforeMount(() => {
-  hour.value = now.value.getHours()
-  updateGreetingStore()
+  updateDayPart(now.value.getHours())
+  updateGreeting()
 })
 </script>
 
