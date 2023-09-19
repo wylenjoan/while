@@ -33,7 +33,9 @@ const settings = {
         <Weather v-show="settings.showWeather" />
       </Suspense>
       <Greeting v-show="settings.showGreeting" class="pb-2"/>
-      <Quote v-show="settings.showQuote" />
+      <Suspense>
+        <Quote v-show="settings.showQuote" />
+      </Suspense>
     </div>
     <div class="flex gap-12">
       <div class="flex flex-col gap-12 w-full">
