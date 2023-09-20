@@ -14,19 +14,22 @@ const { greetingWithName } = storeToRefs(useGreetingStore())
 const { updateDayPart } = useDateTimeStore()
 const { updateGreeting } = useGreetingStore()
 
+function updateValues(hour: number) {
+  if (storedDayPart.value !== useDayPart(hour)) {
+    updateDayPart(hour)
+    updateGreeting(storedDayPart.value)
+  }
+}
+
 watch(
   () => now.value.getHours(), 
   (hour) => {
-    if (storedDayPart.value !== useDayPart(hour)) {
-      updateDayPart(hour)
-      updateGreeting()
-    }
+    updateValues(hour)
   }
 )
 
 onBeforeMount(() => {
-  updateDayPart(now.value.getHours())
-  updateGreeting()
+  updateValues(now.value.getHours())
 })
 </script>
 

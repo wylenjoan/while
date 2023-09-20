@@ -22,7 +22,6 @@ watch(
 onBeforeMount(async () => {
   await fetchWeather()
 })
-
 </script>
 
 <template>
