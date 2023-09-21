@@ -4,7 +4,7 @@ import { useStorage } from "@vueuse/core";
 import type { Quote } from "@/types/Quote";
 
 export const useQuoteStore = defineStore('quoteStore', () => {
-  const storedQuote = ref(useStorage('quote', ''))
+  const storedQuote = ref(useStorage('quote', '{}'))
   const quoteData = ref(JSON.parse(storedQuote.value))
 
   const quote = computed(() =>
