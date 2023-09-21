@@ -24,9 +24,9 @@ body {
 }
 
 .list-container {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-3;
 }
 
 .item-container {
-  @apply flex gap-4 items-start;
+  @apply flex gap-4 items-start pl-1;
 }

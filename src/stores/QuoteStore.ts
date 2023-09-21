@@ -20,7 +20,7 @@ export const useQuoteStore = defineStore('quoteStore', () => {
   )
 
   function updateQuoteData(newQuote: Quote) {
-    storedQuote.value = JSON.stringify(newQuote);
+    storedQuote.value = JSON.stringify(newQuote)
   }
 
   return {

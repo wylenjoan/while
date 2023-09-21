@@ -7,13 +7,11 @@
         :is-done="isDone" 
         :label="label" 
       />
-    <AddItemButton label="Add new reminder"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import ReminderItem from "./ReminderItem.vue"
-import AddItemButton from "../buttons/ButtonAddItem.vue"
 
 import { ref } from "vue"
 
